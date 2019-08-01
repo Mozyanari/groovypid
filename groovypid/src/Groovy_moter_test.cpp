@@ -39,68 +39,54 @@ int main(int argc, char** argv){
   ros::Rate rate(0.5);
   
   serial_write(pi,serial_flag,&m,1);
-  time_sleep(0.1);
   serial_write(pi,serial_flag,&space,1);
-  time_sleep(0.1);
   serial_write(pi,serial_flag,&zero,1);
-  time_sleep(0.1);
   serial_write(pi,serial_flag,&enter,1);
-  time_sleep(0.1);
-
+  //if no [time_sleep], this node don't work
   time_sleep(0.1);
   while(ros::ok()){
 	  if(i == 0){
 	    serial_write(pi,serial_flag,&s,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&space,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&zero,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&space,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&zero,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&enter,1);
+		//time_sleep(0.1);
 		i = 1;
 	  }else if(i == 1){
 	    serial_write(pi,serial_flag,&s,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&space,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&zero,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&space,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&one,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&zero,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&zero,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&enter,1);
+		//time_sleep(0.1);
 		i = 2;
 	  }else{
 	    serial_write(pi,serial_flag,&s,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&space,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&zero,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&space,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&five,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&zero,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&zero,1);
-		time_sleep(0.1);
 		serial_write(pi,serial_flag,&enter,1);
+		//time_sleep(0.1);
 		i = 0;
 	  }
 	  ROS_INFO("%d",i);
 	  ros::spinOnce();
 	  rate.sleep();
   }
+  serial_write(pi,serial_flag,&s,1);
+  serial_write(pi,serial_flag,&space,1);
+  serial_write(pi,serial_flag,&zero,1);
+  serial_write(pi,serial_flag,&space,1);
+  serial_write(pi,serial_flag,&zero,1);
+  serial_write(pi,serial_flag,&enter,1);
   serial_close(pi,serial_flag);
   return 0;
 }

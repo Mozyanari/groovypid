@@ -47,5 +47,6 @@ int main(int argc, char** argv){
 	  ros::spinOnce();
 	  rate.sleep();
   }
+  serial_close(pi,serial_flag);
   return 0;
 }
