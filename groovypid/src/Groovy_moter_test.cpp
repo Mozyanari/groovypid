@@ -6,7 +6,7 @@
 
 
 int main(int argc, char** argv){
-  ros::init(argc, argv, "Groovy_moter_tast");
+  ros::init(argc, argv, "Groovy_moter_test");
   
   ros::NodeHandle n;
 

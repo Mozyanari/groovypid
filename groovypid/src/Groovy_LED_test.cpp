@@ -6,7 +6,7 @@
 
 
 int main(int argc, char** argv){
-  ros::init(argc, argv, "Groovy_LED_tast");
+  ros::init(argc, argv, "Groovy_LED_test");
   
   ros::NodeHandle n;
 
